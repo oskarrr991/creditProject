@@ -1,0 +1,24 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+footer a{ 
+  cursor: pointer; 
+  text-decoration:underline !important;
+}
+.btn-primary, .btn-success {
+  background-color: #ee7023;
+  border-color: #ee7023;
+}
+.btn-primary:hover, .btn-success:hover {
+  background-color: #f35b1c !important;
+  border-color: #f35b1c !important;
+}
+.btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
+  background-color: #ee7023 !important;
+  border-color: #ee7023 !important;
+}
+
+.btn-success, .btn-warning {
+  margin-left: 10px;
+}
+body {
+  background-color: #fbf2ea;
+}

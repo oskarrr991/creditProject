@@ -1,0 +1,15 @@
+<app-progress-bar [progress]="progress"></app-progress-bar>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Paskolos ataskaita</h1>
+    <p class="lead">Sveiki, {{ userName }}</p>
+    <hr class="my-4">
+    <p>Štai Jūsų paskolos ataskaita:</p>
+    <span *ngIf="creditAmount"><strong>Paskolos suma</strong>: {{ creditAmount }}</span><br>
+    <span *ngIf="creditTerm"><strong>Paskolos terminas</strong>: {{ creditTerm }} m.</span><br>
+    <span *ngIf="salary"><strong>Jūsų atlyginimas</strong>: {{ salary }} &#8364;</span><br>
+    <span *ngIf="workedTime"><strong>Darbo patirtis dabartinioje darbo pozicijoje</strong>: {{ workedTime }} mėn.</span><br><br>
+    <p><a class="btn btn-primary btn-sm" routerLink="/home">Pradėti iš naujo</a></p>
+  </div>
+</div>

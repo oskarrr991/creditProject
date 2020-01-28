@@ -1,0 +1,22 @@
+<app-progress-bar [progress]="progress"></app-progress-bar>
+
+<div class="row">
+    <div class="col-12">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="col-auto">
+          <label for="userFullName">Jūsų vardas</label>
+          <input type="text" class="form-control" formControlName="userFullName" [ngClass]="{ 'is-invalid': submitted && fields.userFullName.errors}" />
+
+        <div *ngIf="submitted && fields.userFullName.errors" class="invalid-feedback">
+            <div *ngIf="fields.userFullName.errors">Blogai užpildytas laukas</div>
+        </div>
+
+        </div>
+        <br>
+        <div class="col-auto">
+            <a routerLink="/credit" class="btn btn-secondary">Atgal</a>
+            <button type="submit" class="btn btn-success">Toliau &rarr;</button>
+        </div>
+      </form>
+    </div>
+</div>

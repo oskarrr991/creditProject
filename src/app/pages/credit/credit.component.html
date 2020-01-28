@@ -1,0 +1,32 @@
+<app-progress-bar [progress]="progress"></app-progress-bar>
+
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="creditForm" (ngSubmit)="onSubmit()">
+      <div class="col-auto">
+        <label>Paskolos suma</label>
+        <input type="number" class="form-control" formControlName="creditAmount" [ngClass]="{ 'is-invalid': submitted && fields.creditAmount.errors}" (focusout)='checkcreditAmount($event.target.value)'/>
+        
+        <small id="creditAmount" class="form-text text-muted">Min: 1000, max: 20000</small>
+        <div *ngIf="submitted && fields.creditAmount.errors" class="invalid-feedback">
+            <div *ngIf="fields.creditAmount.errors">Blogai užpildytas laukas</div>
+        </div>
+      </div>
+      <br>
+      <div class="col-auto" *ngIf="tmpTerm.length">
+        <label>Paskolos laikotarpis</label>
+        <select class="form-control" formControlName="creditTerm" [ngClass]="{ 'is-invalid': submitted && fields.creditTerm.errors}">
+          <option *ngFor="let item of tmpTerm" value="{{ item.term }}">{{ item.name }}</option>
+        </select>
+        <div *ngIf="submitted && fields.creditTerm.errors" class="invalid-feedback">
+          <div *ngIf="fields.creditTerm.errors">Mažiausiai: 6 mėnesiai</div>
+        </div>
+      </div>   
+      <br>
+      <div class="col-auto">
+          <a routerLink="/home" class="btn btn-secondary">Atgal</a>
+          <button type="submit" class="btn btn-success">Toliau &rarr;</button>
+      </div>
+    </form>
+  </div>
+</div>

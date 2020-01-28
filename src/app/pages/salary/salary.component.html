@@ -1,0 +1,22 @@
+<app-progress-bar [progress]="progress"></app-progress-bar>
+
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="salaryForm" (ngSubmit)="onSubmit()">
+      <div class="col-auto">
+        <label for="salary">Mėnesinis atlyginimas</label>
+        <input type="number" class="form-control" formControlName="salary" [ngClass]="{ 'is-invalid': submitted && fields.salary.errors}" />
+
+      <div *ngIf="submitted && fields.salary.errors" class="invalid-feedback">
+          <div *ngIf="fields.salary.errors">Min 100 eur. / mėn.</div>
+      </div>
+
+      </div>
+      <br>
+      <div class="col-auto">
+          <a routerLink="/userinfo" class="btn btn-secondary">Atgal</a>
+          <button type="submit" class="btn btn-success">Toliau &rarr;</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<app-progress-bar [progress]="progress"></app-progress-bar>
+
+<div class="row">
+	<div class="col-12">
+		<div *ngIf="!SalaryToLow; else Disabled">
+
+			<form [formGroup]="workingForm" (ngSubmit)="onSubmit()">
+				<div class="col-auto">
+					<label for="wTime">Kiek mėnesiu dirbate dabartinioje pozicijoje</label>
+    <input type="number" class="form-control" formControlName="wTime" [ngClass]="{ 'is-invalid': submitted && fields.wTime.errors}" />
+
+  <div *ngIf="submitted && fields.wTime.errors" class="invalid-feedback">
+      <div *ngIf="fields.wTime.errors">Min. 3 mėn.</div>
+  </div>
+
+  </div>
+  <br>
+  <div class="col-auto">
+      <a routerLink="/salary" class="btn btn-secondary">Atgal</a>
+      <button type="submit" class="btn btn-success">Toliau &rarr;</button>
+  </div>
+</form>
+
+    </div>
+    <ng-template #Disabled>
+      <p>Apgailėstaujame, tačiau Jūsų atlyginimas yra per mažas tokiai paskolai, prašome grįžti atgal<a routerLink="/credit" class="btn btn-warning btn-sm">&larr; Atgal</a></p>
+    </ng-template>   
+  </div>
+</div>
